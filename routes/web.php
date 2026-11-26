@@ -140,6 +140,9 @@ Route::middleware('auth')->group(function () {
     Route::get('/donasi/{id}', [DonasiController::class, 'show'])
         ->name('donasi.show');
 
+    Route::get('/laporan/export-pdf', [LaporanController::class, 'exportPdf'])
+        ->name('laporan.export-pdf');
+        
     Route::get('/laporan', [LaporanController::class, 'index'])
         ->middleware('permission:lihat-laporan')
         ->name('laporan.index');
