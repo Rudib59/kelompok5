@@ -2,8 +2,15 @@
 @section('title', 'Laporan')
 
 @section('content')
-<h1 class="text-3xl font-extrabold">{{ __('Laporan Penggalangan Dana') }}</h1>
-<p class="mt-1 text-slate-600">{{ __('Dihitung dari donasi yang sudah terverifikasi.') }}</p>
+<div class="flex flex-wrap items-center justify-between gap-4">
+    <div>
+        <h1 class="text-3xl font-extrabold">{{ __('Laporan Penggalangan Dana') }}</h1>
+        <p class="mt-1 text-slate-600">{{ __('Dihitung dari donasi yang sudah terverifikasi.') }}</p>
+    </div>
+    <a href="{{ route('laporan.export-pdf') }}" target="_blank" class="inline-flex items-center gap-2 rounded-xl bg-teal-700 px-4 py-2.5 text-sm font-semibold text-white shadow-sm transition hover:bg-teal-800">
+        {{ __('Cetak PDF') }}
+    </a>
+</div>
 
 @php $maks = max(1, (int) $rekap->max('total')); @endphp
 <div class="mt-6 grid gap-4 sm:grid-cols-2">
